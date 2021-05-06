@@ -1,9 +1,8 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <time.h>
-#include <utime.h>
 
 struct stat stat1, stat2;
 struct tm *time1, *time2;
@@ -29,6 +28,7 @@ int main()
     timecmp();
 }
 
+//파일 1의 정보를 가져오는 함수 작성
 void filestat1()
 {
     stat("text1", &stat1);
@@ -43,24 +43,39 @@ void filestat2()
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1()
 {
-    time1 = localtime(&stat1.st_mtime);
+    time1 = localtime(&(stat1.st_mtime));
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2()
 {
-    time1 = localtime(&stat1.st_mtime);
+    time2 = localtime(&(stat2.st_mtime));
 }
 
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp()
 {
+    printf("size compare\n");
+    if (stat1.st_size > stat2.st_size)
+        printf("text1 is bigger\n\n");
+    else if (stat1.st_size == stat2.st_size)
+        printf("sizes are equal\n\n");
+    else
+        printf("text2 is bigger\n\n");
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp()
 {
+    printf("block compare\n");
+    if (stat1.st_blocks > stat2.st_blocks)
+        printf("text1 is bigger\n\n");
+    else if (stat1.st_blocks == stat2.st_blocks)
+        printf("sizes are equal\n\n");
+    else
+        printf("text2 is bigger\n\n");
 }
+
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp()
 {
