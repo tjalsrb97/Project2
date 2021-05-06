@@ -85,11 +85,11 @@ void datecmp()
     printf("date compare\n");
 
     time1 = localtime(&stat1.st_mtime);
-    tm_year1 = (time1->tm_year + 1900);
+    tm_year1 = (time1->tm_year + 1900) * 365;
     tm_day1 = time1->tm_yday;
 
     time2 = localtime(&stat2.st_mtime);
-    tm_year2 = (time2->tm_year + 1900);
+    tm_year2 = (time2->tm_year + 1900) * 365;
     tm_day2 = time2->tm_yday;
 
     result1 = tm_year1 + tm_day1;
@@ -104,7 +104,8 @@ void datecmp()
         printf("text2 is early\n");
     }
     else
-        printf("same time\n");
+        printf("same date\n");
+    printf("\n");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
@@ -136,4 +137,3 @@ void timecmp()
     else
         printf("same time\n");
 }
-
