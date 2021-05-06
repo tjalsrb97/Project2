@@ -104,7 +104,7 @@ void datecmp()
         printf("text2 is early\n");
     }
     else
-        printf("same time\n");
+        printf("same date\n");
     printf("\n");
 }
 
