@@ -16,7 +16,8 @@ void blockcmp();
 void datecmp();
 void timecmp();
 
-int main(){
+int main()
+{
     filestat1();
     filestat2();
     filetime1();
@@ -28,18 +29,21 @@ int main(){
 }
 
 //파일 1의 정보를 가져오는 함수 작성
-void filestat1(){
-    
+void filestat1()
+{
+    stat("text1", &stat1);
 }
 
 //파일 2의 정보를 가져오는 함수 작성
-void filestat2(){
-    
+void filestat2()
+{
+    stat("text2", &stat2);
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
-void filetime1(){
-    
+void filetime1()
+{
+    time1 = localtime(&(stat1.st_mtime));
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
@@ -70,11 +74,12 @@ void blockcmp(){
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
-void datecmp(){
-    
+void datecmp()
+{
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(){
     
 }
+
